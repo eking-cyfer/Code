@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        section {
+            position: relative;
+            max-width: 1340px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+            /* Hide all images by default */
+        }
+
+        img {
+            width: 100%;
+            /* Make images responsive */
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Welcome to the Image Slideshow</h1>
+    <section>
+        <!-- Add your slideshow images here -->
+        <img class="mySlides" src="image1.jpg" alt="Slide 1">
+        <img class="mySlides" src="image2.jpg" alt="Slide 2">
+        <img class="mySlides" src="image3.jpg" alt="Slide 3">
+        <!-- Additional images can be added below -->
+        <img class="mySlides" src="image4.jpg" alt="Slide 4">
+        <img class="mySlides" src="image5.jpg" alt="Slide 5">
+    </section>
+
+    <script>
+        // Automatic Slideshow - change image every 3 seconds
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none"; // Hide all images
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1; } // Reset index if it exceeds the number of images
+            x[myIndex - 1].style.display = "block"; // Show the current image
+            setTimeout(carousel, 3000); // Change image every 3 seconds
+        }
+    </script>
+</body>
+
+</html>
